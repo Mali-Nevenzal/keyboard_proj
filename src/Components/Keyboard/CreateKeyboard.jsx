@@ -13,13 +13,21 @@ const BigEnglishKeyboard=['/',"'",'Q','W','R','T','Y','U','I','O','P','back spac
 'Z','X','C','V','B','N','M','.'];
 
 
+
 function CreateKeyboard()
 {
     const intalizationKeyboard= smallEnglishKeyboard.map(element =>
-        <button key={element}> {element} </button>
+        <button key={element} onClick={dispalay(element)} > {element} </button>
     );
+
+    function dispalay(element){
+        document.getElementById('textDiv').innerHTML +={element};
+    }
+
     return(
         <>
+    
+        <div id='textDiv'></div>
         {intalizationKeyboard}
         </>
     )
