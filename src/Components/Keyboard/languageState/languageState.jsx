@@ -1,45 +1,16 @@
-import React, {useState} from "react"
-
-function languageState(language)
-{
-    if(setLanguage=="english")
-    {
-        setLanguage(prevState => {
-            return {language:"english"}
-        })
-    }
-    else  if(setLanguage=="hebrew")
-    {
-        setLanguage(prevState => {
-            return {language:"hebrew"}
-        })
-    }
-    else  if(setLanguage=="shift")
-    {
-        setLanguage(prevState => {
-            return {language:"shift"}
-        })
-    }
-}
-
-function setKey(letter)
-{
-    if(setLanguage=="english")
-    {
-        setLanguage(prevState => {
-            return {language:"english"}
-        })
-    }
-    else  if(setLanguage=="hebrew")
-    {
-        setLanguage(prevState => {
-            return {language:"hebrew"}
-        })
-    }
-    else  if(setLanguage=="shift")
-    {
-        setLanguage(prevState => {
-            return {language:"shift"}
-        })
-    }
-}
+// import React, {useState} from "react"
+// //export default class languageState extends React.Component 
+// const languageState = (props)=>
+// {
+//     if(key=="english" || setLanguage=="hebrew")
+//         props.setLanguage(props.key);
+//     else  if(key=="UPPER-CASE")
+//         props.setLanguage(upperCase);
+//     else  if(setLanguage=="lower-case")
+//         props.setLanguage("english");
+// return(
+//     <>
+//     {}
+//     </>
+// )
+// }

@@ -1,93 +1,68 @@
 import React, { useState } from 'react'
+import EnterKey from './EnterKey';
+
+let numbersArr=['1','2','3','4','5','6','7','8','9','0','/',"'",'.'];
+let constKeys=['back space','space','delete','enter']
 
 let allKeyboard={
-    hebrew:['1','2','3','4','5','6','7','8','9','0',"/","'","ק","ר","א","ט","ו","ן","ם","פ",'back space',"ש","ד",
-    "ג","כ","ע","י","ח","ל","ך","enter",'shift',
-    "ף","ס","ב","ה","נ","מ","צ","ת","ץ",".",' ','english'],
+    hebrew:["ק","ר","א","ט","ו","ן","ם","פ","ש","ד",
+    "ג","כ","ע","י","ח","ל","ך",
+    "ף","ס","ב","ה","נ","מ","צ","ת","ץ",'english'],
 
-    english:['1','2','3','4','5','6','7','8','9','0','/',"'",'q','w','r','t','y','u','i','o','p','back space',
-    'a','s','d','f','g','h','j','k','l',"enter",'shift','hebrew',
-    'z','x','c','v','b','n','m','.',' '],
+    english:['q','w','r','t','y','u','i','o','p',
+    'a','s','d','f','g','h','j','k','l',
+    'z','x','c','v','b','n','m','hebrew','UPPER-CASE'],
     
-    shift:['1','2','3','4','5','6','7','8','9','0','/',"'",'Q','W','R','T','Y','U','I','O','P','back space','hebrew',
-    'A','S','D','F','G','H','J','K','L',"enter",'shift',
-    'Z','X','C','V','B','N','M','.',' ']
+    upperCase:['Q','W','R','T','Y','U','I','O','P',
+    'A','S','D','F','G','H','J','K','L',
+    'Z','X','C','V','B','N','M','hebrew','lower-case']
 };
 
-// let hebrew=['1','2','3','4','5','6','7','8','9','0',"/","'","ק","ר","א","ט","ו","ן","ם","פ",'back space',"ש","ד",
-// "ג","כ","ע","י","ח","ל","ך","enter",'shift',
-// "ף","ס","ב","ה","נ","מ","צ","ת","ץ",".",' ','english']
 
-// let english=['1','2','3','4','5','6','7','8','9','0','/',"'",'q','w','r','t','y','u','i','o','p','back space',
-// 'a','s','d','f','g','h','j','k','l',"enter",'shift','hebrew',
-// 'z','x','c','v','b','n','m','.',' '];
-
-
-// const shift=['1','2','3','4','5','6','7','8','9','0','/',"'",'Q','W','R','T','Y','U','I','O','P','back space','hebrew',
-// 'A','S','D','F','G','H','J','K','L',"enter",'shift',
-// 'Z','X','C','V','B','N','M','.',' '];
-
-// const specialKeys=['1','2','3','4','5','6','7','8','9','0','/',"'",'Q','W','R','T','Y','U','I','O','P','back space','hebrew',
-// 'A','S','D','F','G','H','J','K','L',"enter",'shift',
-// 'Z','X','C','V','B','N','M','.',' '];
-
-
-function CreateKeyboard()
+const CreateKeyboard = (props)=>
 {
-    const[language,setLanguage]=useState({lan:"english"});
-    const lan=language.lan;
-    
-    const[letter,setKey]=useState(" ");
+    function changeLanguageMode(key){
+    props.setLanguage(key);
+   }
 
-    let intalizationKeyboard = allKeyboard[language.lan].map(element =>
-        <button key={element} onClick={() => setLanguage(element)}  > {element} </button>
-    );
+   function addLetter(key){
+    //const keyStyle = {color:props.colorState,size}  style={keyStyle}
+    const newKey = <span  >{key}</span>
+    props.setLetter([...props.letter,newKey]);
+   }
 
-    
-    let intalizationLetters = allKeyboard[language.lan].map(letter =>
-        <button key={letter} onClick={() => setKey(letter)}  > {letter} </button>
-    );
+   function checkKey(key){
+    //if(key==="hebrew" || key==="english"||key==="UPPER-CASE" || key==="lower-case" )
+     // <languageState key={key} language={props.language} setLanguage={props.setLanguage} showKeys={showKeys()}/>
+     switch(key)
+     {
+        case "english"|| "hebrew":
+            changeLanguageMode(key);
+        case "UPPER-CASE":
+            changeLanguageMode("upperCase");
+        case "lower-case":
+            changeLanguageMode("english");
+        case "enter":
+          <EnterKey letter={props.letter} setLetter={setLetter}/> 
+        default:
+            addLetter(key);
+     }
+    }
 
-    setLanguage(language);
+    function showKeys(arr)
+    {
+        return arr.map(element =>
+            <button onClick={() =>checkKey(element)}> {element} </button>
+        );
+    }
+
     return(
-    
         <>
-        {intalizationKeyboard}
+            {showKeys(numbersArr)}
+            {showKeys(allKeyboard[props.language])}
+            {showKeys(constKeys)}
         </>
     )
 }
 
 export default CreateKeyboard;
-
-
-
-
-
-    // let intalizationKeyboard;
-    // CreateKeyboardMode();
-    // function CreateKeyboardMode(mode=null){
-    //     if(mode==null){
-    //         intalizationKeyboard = (allKeyboard['english']).map(element =>
-    //             <button key={element} onClick={() => dispalay(element)}  > {element} </button>
-    //         );
-    //     }
-    //     else
-    //      intalizationKeyboard = (allKeyboard[mode]).map(element =>
-    //         <button key={element} onClick={() => dispalay(element)}  > {element} </button>
-    //     );
- 
-    // }
-  
-
-    // function Car(props) {
-    //     return <h2>I am a { props.brand }!</h2>;
-    //   }
-      
-    //   function Garage() {
-    //     return (
-    //       <>
-    //         <h1>Who lives in my garage?</h1>
-    //         <Car brand="Ford" />
-    //       </>
-    //     );
-    //   }

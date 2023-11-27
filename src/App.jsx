@@ -6,13 +6,13 @@ import CreateKeyboard from './Components/Keyboard/CreateKeyboard.jsx'
 
 
 function App() {
-  //const [count, setCount] = useState(0)
-  const keyboardLanguage= useState('english');
-
+  const[language,setLanguage]=useState("english");
+  const[letter,setLetter]=useState([]);
 
   return (
     <>
-        <CreateKeyboard />
+        <div>{letter}</div>
+        <CreateKeyboard language={language} setLanguage={setLanguage} letter={letter} setLetter={setLetter}/>
     </>
   )
 }
