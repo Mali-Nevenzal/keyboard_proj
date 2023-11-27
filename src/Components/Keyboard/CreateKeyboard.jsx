@@ -34,21 +34,48 @@ const CreateKeyboard = (props)=>
    function checkKey(key){
     //if(key==="hebrew" || key==="english"||key==="UPPER-CASE" || key==="lower-case" )
      // <languageState key={key} language={props.language} setLanguage={props.setLanguage} showKeys={showKeys()}/>
-     switch(key)
-     {
-        case "english"|| "hebrew":
+     switch (key){
+        case "english":
             changeLanguageMode(key);
+            break;
+        case "hebrew":
+            changeLanguageMode(key);
+            break;
         case "UPPER-CASE":
             changeLanguageMode("upperCase");
+            break;
         case "lower-case":
             changeLanguageMode("english");
-        case "enter":
-          <EnterKey letter={props.letter} setLetter={setLetter}/> 
+            break;
+        // case "enter":
+        //   <EnterKey letter={props.letter} setLetter={setLetter}/> 
         default:
             addLetter(key);
      }
     }
-
+    let day;
+    switch (new Date().getDay()) {
+      case 0:
+        day = "Sunday";
+       
+      case 1:
+        day = "Monday";
+        break;
+      case 2:
+        day = "Tuesday";
+        break;
+      case 3:
+        day = "Wednesday";
+        break;
+      case 4:
+        day = "Thursday";
+        break;
+      case 5:
+        day = "Friday";
+        break;
+      case  6:
+        day = "Saturday";
+    }
     function showKeys(arr)
     {
         return arr.map(element =>
