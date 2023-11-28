@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import EnterKey from './EnterKey';
 
 let numbersArr=['1','2','3','4','5','6','7','8','9','0','/',"'",'.'];
-let constKeys=['back space','space','delete','enter']
 
 let allKeyboard={
     hebrew:["ק","ר","א","ט","ו","ן","ם","פ","ש","ד",
@@ -24,20 +23,26 @@ const CreateKeyboard = (props)=>
     function changeLanguageMode(key){
     props.setLanguage(key);
    }
-   let e=props.letter;
-   let r= props.setLetter;
+   let letterUseState=props.letter;
+   let setletterUseState = props.setLetter;
+   let typingKeysUseState=props.typingKeys;
+   let setTypingKeysUseState=props.setTypingKeys;
 
    function addLetter(key){
     //const keyStyle = {color:props.colorState,size}  style={keyStyle}
     const newKey = <span  >{key}</span>
     props.setLetter([...props.letter,newKey]);
+    props.setTypingKeys([...props.typingKeys,newKey])
    }
 
+   function showKeys(arr)
+   {
+       return arr.map(element =>
+           <button onClick={() =>checkKey(element)}> {element} </button>
+       );
+   }
    
-
    function checkKey(key){
-    //if(key==="hebrew" || key==="english"||key==="UPPER-CASE" || key==="lower-case" )
-     // <languageState key={key} language={props.language} setLanguage={props.setLanguage} showKeys={showKeys()}/>
      switch (key){
         case "english":
             changeLanguageMode(key);
@@ -60,9 +65,8 @@ const CreateKeyboard = (props)=>
 
     return(
         <>
-            {showKeys(numbersArr)}
-            {showKeys(allKeyboard[props.language])}
-            {showKeys(constKeys)}
+            <div>{showKeys(numbersArr)}</div>
+            <div>{showKeys(allKeyboard[props.language])}</div>
         </>
     )
 }
