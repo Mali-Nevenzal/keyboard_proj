@@ -10,7 +10,7 @@ const EnterKey=(props)=>
     }
     return(
         <>
-        <br>{addEnter(props.letter)}</br>
+       {addEnter(props.letter)}
         </>
     )
 }
