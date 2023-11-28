@@ -14,11 +14,13 @@ const SpecialKeys=(props)=>
         );
     }
 
-    function checkConstKey(key){
+    function checkConstKey(key){        
         
         switch (key){
            case "back space":
-                props.setLetter([...props.letter.," "]);
+            props.letter.pop() // removes last element from array
+            props.setLetter([...props.letter])
+                props.setLetter(props.letter.slice(0, props.letter.length - 1));
            case "space":
                 const spaceKey = <span> </span>
                 props.setLetter([...props.letter,spaceKey]);
@@ -37,6 +39,7 @@ const SpecialKeys=(props)=>
     
   
     return(
+        
         <>
         {showConstKeys(constKeys)}
         </>
