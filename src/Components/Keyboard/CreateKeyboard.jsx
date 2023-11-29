@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import EnterKey from './EnterKey';
-import Size from './Size/Size';
-
 let numbersArr=['1','2','3','4','5','6','7','8','9','0','/',"'",'.'];
 let allKeyboard={
     hebrew:["ק","ר","א","ט","ו","ן","ם","פ",
