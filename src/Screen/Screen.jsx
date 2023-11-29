@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import '../app.css'
-import CreateKeyboard from '../Components/Keyboard/CreateKeyboard/CreateKeyboard.jsx'
-import SpecialKeys from '../Components/Keyboard/SpecialKeys.jsx'
-import Color from '../Components/Keyboard/Color/Color.jsx'
-import Size from '../Components/Keyboard/Size/Size.jsx'
+import CreateKeyboard from '../Components/CreateKeyboard/CreateKeyboard.jsx'
+import SpecialKeys from '../Components/SpecialKeys/SpecialKeys.jsx'
+import Color from '../Components/Color/Color.jsx'
+import Size from '../Components/Size/Size.jsx'
 import style from '../Screen/Screen.module.css'
 
 
@@ -13,7 +13,6 @@ function Screen(){
     const[color,setColor]=useState("red");
     const[size,setSize]=useState("30px");
     const[allActivities, setAllActivities]=useState([]);
-    const allTextColor="all";
   
     return (
         <>

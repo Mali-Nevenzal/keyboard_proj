@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import style from '../CreateKeyboard/CreateKeyboard.module.css'
+import style from './CreateKeyboard.module.css'
 
 
 let numbersArr=['1','2','3','4','5','6','7','8','9','0','/',"'",'.'];
