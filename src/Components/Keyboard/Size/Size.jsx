@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import style from '../Size/Size.module.css'
 
-let sizeArr=[10,15,20,30];
+let sizeArr=[30,40,50,60];
 
 const Size=(props)=>{
 
@@ -17,7 +18,8 @@ const Size=(props)=>{
 
     return(
         <>
-        <div>
+        <p>Choose font-size</p>
+        <div className={style.sizeArr}>
           {changeSize()}  
         </div>
         </>

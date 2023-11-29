@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import style from '../CreateKeyboard/CreateKeyboard.module.css'
+
+
 let numbersArr=['1','2','3','4','5','6','7','8','9','0','/',"'",'.'];
 let allKeyboard={
+
     hebrew:["ק","ר","א","ט","ו","ן","ם","פ",
     "ש","ד","ג","כ","ע","י","ח","ל","ך","ף"
     ,"ס","ב","ה","נ","מ","צ","ת","ץ",'english',"😀"],
@@ -36,7 +40,7 @@ const CreateKeyboard = (props)=>
    function showKeys(arr)
    {
        return arr.map(element =>
-           <button onClick={() =>checkKey(element)}> {element} </button>
+           <button className={style.element} onClick={() =>checkKey(element)}> {element} </button>
        );
    }
    
@@ -66,8 +70,8 @@ const CreateKeyboard = (props)=>
 
     return(
         <>
-            <div>{showKeys(numbersArr)}</div>
-            <div>{showKeys(allKeyboard[props.language])}</div>
+            <div className={style.numberArr}>{showKeys(numbersArr)}</div>
+            <div className={style.lettersArr}>{showKeys(allKeyboard[props.language])}</div>
         </>
     )
 }

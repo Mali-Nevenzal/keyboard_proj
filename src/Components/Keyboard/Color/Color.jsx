@@ -25,6 +25,7 @@ const Color=(props)=>{
 
     return(
         <>
+        <p>Choose font color</p>
         <div>
           {changeColor()}  
         </div>

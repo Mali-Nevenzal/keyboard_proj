@@ -1,0 +1,21 @@
+.numberArr{
+    font-family: cursive;
+    padding: 2px;
+    margin: 3px;
+    width: 1000px;
+    align-items: center;
+    justify-items: center;
+}
+
+.buttons{
+    margin: 2px;
+}
+
+.lettersArr{
+    width: 1000px;
+
+}
+
+.green{
+    background-color: green;
+}

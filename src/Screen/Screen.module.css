@@ -1,0 +1,16 @@
+.perStlye{
+    border: 2px black;
+    font-family: papyrus;
+}
+
+.keyBoard{
+    color: aquamarine;
+    border: 2px black;
+}
+
+.welcome{
+    font-family: papyrus;
+    margin: 3%;
+    padding: 2%;
+    font-size: 60px;
+}
