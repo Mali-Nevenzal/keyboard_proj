@@ -23,14 +23,8 @@ const Color=(props)=>{
         );
     }
 
-    function changeAllColor(){
-        props.setLetter(style=);
-    }
-
     return(
         <>
-        <button onClick={changeAllColor()}>color all text</button>
-        <button onClick={() =>changeColor()} >color text</button>
         <div>
           {changeColor()}  
         </div>
