@@ -7,14 +7,14 @@ let allKeyboard={
 
     hebrew:["ק","ר","א","ט","ו","ן","ם","פ",
     "ש","ד","ג","כ","ע","י","ח","ל","ך","ף"
-    ,"ס","ב","ה","נ","מ","צ","ת","ץ",'english',"😀"],
+    ,"ס","ב","ה","נ","מ","צ","ת","ץ",'*','@','!','%','english',"😀"],
 
     english:['q','e','w','r','t','y','u','i','o','p',
     'a','s','d','f','g','h','j','k','l',
-    'z','x','c','v','b','n','m','עברית','UPPER-CASE',"😀"],
+    'z','x','c','v','b','n','m','@','!','%','עברית','UPPER-CASE',"😀"],
     
     upperCase:['Q','W','E','R','T','Y','U','I','O','P',
-    'A','S','D','F','G','H','J','K','L',
+    'A','S','D','F','G','H','J','K','L','!','%',
     'Z','X','C','V','B','N','M','עברית','lower-case',"😀"],
 
     emojies:["😃","😄","😁","😆","😅","😀","😂","🤣",
@@ -40,7 +40,7 @@ const CreateKeyboard = (props)=>
    function showKeys(arr)
    {
        return arr.map(element =>
-           <button className={style.element} onClick={() =>checkKey(element)}> {element} </button>
+           <button className={style.buttons} onClick={() =>checkKey(element)}> {element} </button>
        );
    }
    
@@ -70,9 +70,14 @@ const CreateKeyboard = (props)=>
 
     return(
         <>
-            <div className={style.numberArr}>{showKeys(numbersArr)}</div>
-            <div className={style.lettersArr}>{showKeys(allKeyboard[props.language])}</div>
+        <div className={style.allKeyboard}>
+            <p className={style.numberArr}>{showKeys(numbersArr)}</p>
+            <p className={style.lettersArr}>{showKeys(allKeyboard[props.language])}</p>
+        </div>
         </>
+
+        
+
     )
 }
 

@@ -9,7 +9,7 @@ const Size=(props)=>{
     function changeSize()
     {
         return sizeArr.map(element =>
-            <button onClick={() =>changeSizeState(element)}> {element} </button>
+            <button className={style.sizeButton} onClick={() =>changeSizeState(element)}> {element} </button>
         );
     }
     function changeSizeState(size){
@@ -18,7 +18,7 @@ const Size=(props)=>{
 
     return(
         <>
-        <p>Choose font-size</p>
+        <p className={style.chooseSize}>Choose font-size</p>
         <div className={style.sizeArr}>
           {changeSize()}  
         </div>

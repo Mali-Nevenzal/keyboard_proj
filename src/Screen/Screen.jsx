@@ -16,7 +16,7 @@ function Screen(){
   
     return (
         <>
-        <div className={style.welcome}>Welcome for our typing website</div>
+        <div className={style.welcome}>Welcome to our typing website</div>
           <pre className={style.perStlye}>{letter}</pre>
           <div className={style.keyBoard}>
           <CreateKeyboard allActivities={allActivities} setAllActivities={setAllActivities} color={color} size={size} language={language} setLanguage={setLanguage} letter={letter} setLetter={setLetter}  />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import style from '../SpecialKeys/SpecialKeys.module.css'
 
 let constKeys = ['back space', 'space', 'delete', 'enter', 'Ctrl+z', 'upper all', 'lower all'];
 
@@ -7,7 +8,7 @@ const SpecialKeys = (props) => {
 
     function showConstKeys(arr) {
         return arr.map(element =>
-            <button onClick={() => checkConstKey(element)}> {element} </button>
+            <button className={style.constKeys} onClick={() => checkConstKey(element)}> {element} </button>
         );
 
     }
@@ -70,7 +71,9 @@ const SpecialKeys = (props) => {
 
     return (
         <>
-            {showConstKeys(constKeys)}
+            <div className={style.constKeysArr}>
+                {showConstKeys(constKeys)}
+            </div>
         </>
     )
 }
