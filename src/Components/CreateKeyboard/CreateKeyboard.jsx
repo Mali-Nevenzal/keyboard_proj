@@ -32,7 +32,7 @@ const CreateKeyboard = (props)=>
    }
   
    function addLetter(key){
-    const newKey = <span style={{color: props.color, fontSize: props.size}} >{key}</span>
+    const newKey = <span key={key} style={{color: props.color, fontSize: props.size}} >{key}</span>
     props.setLetter([...props.letter,newKey]);
     props.setAllActivities([...props.allActivities,props.letter]);
   }
@@ -40,7 +40,7 @@ const CreateKeyboard = (props)=>
    function showKeys(arr)
    {
        return arr.map(element =>
-           <button className={style.buttons} onClick={() =>checkKey(element)}> {element} </button>
+           <button key={element} className={style.buttons} onClick={() =>checkKey(element)}> {element} </button>
        );
    }
    

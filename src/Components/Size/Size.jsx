@@ -9,7 +9,7 @@ const Size=(props)=>{
     function changeSize()
     {
         return sizeArr.map(element =>
-            <button className={style.sizeButton} onClick={() =>changeSizeState(element)}> {element} </button>
+            <button key={element} className={style.sizeButton} onClick={() =>changeSizeState(element)}> {element} </button>
         );
     }
     function changeSizeState(size){

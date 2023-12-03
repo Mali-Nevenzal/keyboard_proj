@@ -11,7 +11,7 @@ const Color=(props)=>{
     function changeColor()
     {
         return colorsArr.map(element =>
-            <button className={style.colorButton} onClick={() =>changeColorState(element)}> {element} </button>
+            <button key={element} className={style.colorButton} onClick={() =>changeColorState(element)}> {element} </button>
         );
     }
     function changeColorState(color){

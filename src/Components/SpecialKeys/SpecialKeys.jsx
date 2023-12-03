@@ -8,7 +8,7 @@ const SpecialKeys = (props) => {
 
     function showConstKeys(arr) {
         return arr.map(element =>
-            <button className={style.constKeys} onClick={() => checkConstKey(element)}> {element} </button>
+            <button key={element} className={style.constKeys} onClick={() => checkConstKey(element)}> {element} </button>
         );
 
     }
@@ -27,8 +27,7 @@ const SpecialKeys = (props) => {
         switch (key) {
             case "back space":
                 {
-                    props.setLetter([...props.letter])
-                    props.setLetter(props.letter.slice(0, props.letter.length--));
+                    props.setLetter(props.letter.slice(0, -1));
                     props.setAllActivities([...props.allActivities, props.letter]);
                     break;
                 }
@@ -59,8 +58,9 @@ const SpecialKeys = (props) => {
                 break;
             case "Ctrl+z":
                 if (props.allActivities.length != 0) {
-                    props.setAllActivities(props.allActivities.slice(0, -1))
                     props.setLetter(props.allActivities[(props.allActivities.length) - 1])
+                    props.setAllActivities(props.allActivities.slice(0, -1))
+
                 }
                 break;
 
