@@ -26,11 +26,9 @@ const SpecialKeys = (props) => {
         let r = props.letter.length;
         switch (key) {
             case "back space":
-                {
-                    props.setLetter(props.letter.slice(0, -1));
-                    props.setAllActivities([...props.allActivities, props.letter]);
-                    break;
-                }
+                props.setLetter(props.letter.slice(0, -1));
+                props.setAllActivities([...props.allActivities, props.letter]);
+                break;
             case "space":
                 const spaceKey = <span> </span>
                 props.setLetter([...props.letter, spaceKey]);
