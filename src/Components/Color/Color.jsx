@@ -5,7 +5,8 @@ let colorsArr=['red','green','blue','black','pink','lightblue','yellow','greenye
 
 const Color=(props)=>{
 
-    
+    const { setColor} = props;
+
 
   
     function changeColor()
@@ -15,7 +16,7 @@ const Color=(props)=>{
         );
     }
     function changeColorState(color){
-        props.setColor(color);
+       setColor(color);
     }
 
 

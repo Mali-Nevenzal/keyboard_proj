@@ -27,14 +27,16 @@ let allKeyboard={
 
 const CreateKeyboard = (props)=>
 {
+    const { letter, setLetter,allActivities,setAllActivities} = props;
+
     function changeLanguageMode(key){
     props.setLanguage(key);
    }
   
    function addLetter(key){
     const newKey = <span key={key} style={{color: props.color, fontSize: props.size}} >{key}</span>
-    props.setLetter([...props.letter,newKey]);
-    props.setAllActivities([...props.allActivities,props.letter]);
+    setLetter([...letter,newKey]);
+    setAllActivities([...allActivities,letter]);
   }
 
    function showKeys(arr)

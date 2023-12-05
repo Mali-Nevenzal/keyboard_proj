@@ -5,6 +5,7 @@ let constKeys = ['back space', 'space', 'delete', 'enter', 'Ctrl+z', 'upper all'
 
 
 const SpecialKeys = (props) => {
+    const { letter, setLetter,allActivities,setAllActivities} = props;
 
     function showConstKeys(arr) {
         return arr.map(element =>
@@ -15,7 +16,7 @@ const SpecialKeys = (props) => {
 
     function upperOrLowerAll(upper_or_lower) {
         let updated_input = [];
-        updated_input = props.letter.map(span => {
+        updated_input = letter.map(span => {
             let s = span.props.children;
             return <span style={span.props.style}>{upper_or_lower === "upper all" ? s.toUpperCase() : s.toLowerCase()}</span>;
         });
@@ -23,41 +24,40 @@ const SpecialKeys = (props) => {
     }
 
     function checkConstKey(key) {
-        let r = props.letter.length;
         switch (key) {
             case "back space":
-                props.setLetter(props.letter.slice(0, -1));
-                props.setAllActivities([...props.allActivities, props.letter]);
+                setLetter(letter.slice(0, -1));
+                setAllActivities([...allActivities, letter]);
                 break;
             case "space":
                 const spaceKey = <span> </span>
-                props.setLetter([...props.letter, spaceKey]);
-                props.setAllActivities([...props.allActivities, props.letter]);
+                setLetter([...letter, spaceKey]);
+                setAllActivities([...allActivities, letter]);
                 break;
             case "delete":
-                props.setLetter([]);
-                props.setAllActivities([...props.allActivities, props.letter]);
+                setLetter([]);
+                setAllActivities([...allActivities, letter]);
                 break;
             case "enter":
                 const enterKey = <span>{'\n'}</span>
-                props.setLetter([...props.letter, enterKey]);
-                props.setAllActivities([...props.allActivities, props.letter]);
+                setLetter([...letter, enterKey]);
+                setAllActivities([...allActivities, letter]);
                 break;
             case "upper all":
                 let a = upperOrLowerAll("upper all");
-                props.setLetter([...a]);
-                props.setAllActivities([...props.allActivities, props.letter]);
+                setLetter([...a]);
+                setAllActivities([...allActivities, letter]);
                 break;
             case "lower all":
                 let b = upperOrLowerAll("lower all");
-                props.setLetter([...b]);
+                setLetter([...b]);
 
-                props.setAllActivities([...props.allActivities, props.letter]);
+                setAllActivities([...allActivities, letter]);
                 break;
             case "Ctrl+z":
-                if (props.allActivities.length != 0) {
-                    props.setLetter(props.allActivities[(props.allActivities.length) - 1])
-                    props.setAllActivities(props.allActivities.slice(0, -1))
+                if (allActivities.length != 0) {
+                    setLetter(allActivities[(allActivities.length) - 1])
+                    setAllActivities(allActivities.slice(0, -1))
 
                 }
                 break;
