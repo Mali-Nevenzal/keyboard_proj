@@ -1,6 +1,8 @@
 .perStlye{
     border: 2px black;
     font-family: papyrus;
+    border-style: solid;
+    min-height: 100px;
 }
 
 .keyBoard{
