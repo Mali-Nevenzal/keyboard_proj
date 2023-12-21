@@ -44,21 +44,19 @@ const SpecialKeys = (props) => {
                 setAllActivities([...allActivities, letter]);
                 break;
             case "upper all":
-                let a = upperOrLowerAll("upper all");
-                setLetter([...a]);
+                let upperLetters = upperOrLowerAll("upper all");
+                setLetter([...upperLetters]);
                 setAllActivities([...allActivities, letter]);
                 break;
             case "lower all":
-                let b = upperOrLowerAll("lower all");
-                setLetter([...b]);
-
+                let lowerLetters = upperOrLowerAll("lower all");
+                setLetter([...lowerLetters]);
                 setAllActivities([...allActivities, letter]);
                 break;
             case "Ctrl+z":
                 if (allActivities.length != 0) {
                     setLetter(allActivities[(allActivities.length) - 1])
                     setAllActivities(allActivities.slice(0, -1))
-
                 }
                 break;
 

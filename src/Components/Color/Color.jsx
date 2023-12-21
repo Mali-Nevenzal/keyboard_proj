@@ -7,18 +7,16 @@ const Color=(props)=>{
 
     const { setColor} = props;
 
-
-  
     function changeColor()
     {
         return colorsArr.map(element =>
             <button key={element} className={style.colorButton} onClick={() =>changeColorState(element)}> {element} </button>
         );
     }
+
     function changeColorState(color){
        setColor(color);
     }
-
 
     return(
         <>
